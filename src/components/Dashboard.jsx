@@ -5,10 +5,10 @@ import { useAuth } from "../context/AuthContext";
 
 const Dashboard = () => {
     const [hospitals, setHospitals] = useState([]);
-  
+
     useEffect(() => {
         // Fetch data from the backend
-        axios.get("http://localhost:8080/api/hospitals/view")
+        axios.get("https://hospital-availability-server-production.up.railway.app/api/hospitals/view")
             .then(response => setHospitals(response.data))
             .catch(error => console.error("There was an error fetching hospital data", error));
     }, []);

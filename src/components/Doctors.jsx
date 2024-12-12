@@ -30,7 +30,7 @@ const Doctor = () => {
 
     const fetchDoctors = () => {
         const token = localStorage.getItem('token');
-        axios.get('http://localhost:8080/api/doctors/view', {
+        axios.get('https://hospital-availability-server-production.up.railway.app/api/doctors/view', {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(response => {
@@ -43,7 +43,7 @@ const Doctor = () => {
 
     const fetchHospitals = () => {
         const token = localStorage.getItem('token');
-        axios.get('http://localhost:8080/api/hospitals/view', {
+        axios.get('https://hospital-availability-server-production.up.railway.app/api/hospitals/view', {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(response => {
@@ -68,7 +68,7 @@ const Doctor = () => {
 
     const handleDeleteDoctor = (id) => {
         const token = localStorage.getItem('token');
-        axios.delete(`http://localhost:8080/api/doctors/${id}`, {
+        axios.delete(`https://hospital-availability-server-production.up.railway.app/api/doctors/${id}`, {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(() => fetchDoctors())
@@ -89,7 +89,7 @@ const Doctor = () => {
         };
 
         const token = localStorage.getItem('token');
-        axios.post('http://localhost:8080/api/doctors/create', doctor, {
+        axios.post('https://hospital-availability-server-production.up.railway.app/api/doctors/create', doctor, {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(() => {
@@ -125,7 +125,7 @@ const Doctor = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {doctors.map(doctor =>(
+                        {doctors.map(doctor => (
                             <tr key={doctor.id} className="border-b">
                                 <td className="px-4 py-2 text-center">{doctor.name}</td>
                                 <td className="px-4 py-2 text-center">{doctor.specialty}</td>

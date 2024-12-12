@@ -17,7 +17,7 @@ const Hospitals = () => {
     const fetchHospitals = () => {
         const token = localStorage.getItem('token');
         if (token) {
-            axios.get('http://localhost:8080/api/hospitals/view', {
+            axios.get('https://hospital-availability-server-production.up.railway.app/api/hospitals/view', {
                 headers: { Authorization: `Bearer ${token}` }
             })
                 .then(response => {
@@ -53,7 +53,7 @@ const Hospitals = () => {
 
     const handleDeleteHospital = (id) => {
         const token = localStorage.getItem('token');
-        axios.delete(`http://localhost:8080/api/hospitals/${id}`, {
+        axios.delete(`https://hospital-availability-server-production.up.railway.app/api/hospitals/${id}`, {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(() => {
@@ -66,7 +66,7 @@ const Hospitals = () => {
         const token = localStorage.getItem('token');
         if (editMode) {
             // Update existing hospital
-            axios.put(`http://localhost:8080/api/hospitals/${currentHospital.id}`, currentHospital, {
+            axios.put(`https://hospital-availability-server-production.up.railway.app/api/hospitals/${currentHospital.id}`, currentHospital, {
                 headers: { Authorization: `Bearer ${token}` }
             })
                 .then(() => {
@@ -76,7 +76,7 @@ const Hospitals = () => {
                 .catch(error => console.error(error));
         } else {
             // Create new hospital
-            axios.post('http://localhost:8080/api/hospitals/create', currentHospital, {
+            axios.post('https://hospital-availability-server-production.up.railway.app/api/hospitals/create', currentHospital, {
                 headers: { Authorization: `Bearer ${token}` }
             })
                 .then(() => {

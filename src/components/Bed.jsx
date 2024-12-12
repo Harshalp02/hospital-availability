@@ -18,7 +18,7 @@ const Bed = () => {
 
     const fetchBeds = () => {
         const token = localStorage.getItem('token');
-        axios.get('http://localhost:8080/api/beds/view', {
+        axios.get('https://hospital-availability-server-production.up.railway.app/api/beds/view', {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(response => {
@@ -29,7 +29,7 @@ const Bed = () => {
 
     const fetchHospitals = () => {
         const token = localStorage.getItem('token');
-        axios.get('http://localhost:8080/api/hospitals/view', {
+        axios.get('https://hospital-availability-server-production.up.railway.app/api/hospitals/view', {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(response => {
@@ -52,7 +52,7 @@ const Bed = () => {
 
     const handleDeleteBed = (id) => {
         const token = localStorage.getItem('token');
-        axios.delete(`http://localhost:8080/api/beds/delete/${id}`, {
+        axios.delete(`https://hospital-availability-server-production.up.railway.app/api/beds/delete/${id}`, {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(() => fetchBeds())
@@ -74,7 +74,7 @@ const Bed = () => {
 
         const token = localStorage.getItem('token');
         if (editMode) {
-            axios.put(`http://localhost:8080/api/beds/update/${currentBed.id}`, bed, {
+            axios.put(`https://hospital-availability-server-production.up.railway.app/api/beds/update/${currentBed.id}`, bed, {
                 headers: { Authorization: `Bearer ${token}` }
             })
                 .then(() => {
@@ -83,7 +83,7 @@ const Bed = () => {
                 })
                 .catch(error => console.error('Error updating bed:', error));
         } else {
-            axios.post('http://localhost:8080/api/beds/create', bed, {
+            axios.post('https://hospital-availability-server-production.up.railway.app/api/beds/create', bed, {
                 headers: { Authorization: `Bearer ${token}` }
             })
                 .then(() => {
